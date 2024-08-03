@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  elixir-phoenix:
+    build: .
+    container_name: elixir_phoenix
+    stdin_open: true # keep stdin open even if not attached
+    tty: true # allocate a pseudo-TTY
+    volumes:
+      - ./program:/home/program
+    ports:
+      - "4000:4000"
+    environment:
+      - MIX_ENV=dev
+    command: bash
